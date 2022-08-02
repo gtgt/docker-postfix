@@ -1,0 +1,10 @@
+# sqlite_virtual_domains_maps.cf
+dbpath = /srv/postfixadmin/database/postfixadmin.db
+query          = SELECT domain FROM domain WHERE domain='%s' AND active = '1'
+#query          = SELECT domain FROM domain WHERE domain='%s'
+#optional query to use when relaying for backup MX
+#query           = SELECT domain FROM domain WHERE domain='%s' AND backupmx = '0' AND active = '1'
+#optional query to use for transport map support
+#query           = SELECT domain FROM domain WHERE domain='%s' AND active = '1' AND NOT (transport LIKE 'smtp%%' OR transport LIKE 'relay%%')
+#expansion_limit = 100
+

@@ -1,0 +1,13 @@
+#admin_table .btn {
+  padding: 2px 12px;
+  line-height: 1.2;
+}
+#main_menu .btn {
+  width: 100%;
+}
+.btn-toolbar .btn {
+  padding: 5px 10px;
+}
+.navbar-btn.btn-sm {
+  margin: 0;
+}

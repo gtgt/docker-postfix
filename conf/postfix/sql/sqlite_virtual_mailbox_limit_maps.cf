@@ -1,0 +1,4 @@
+# sqlite_virtual_mailbox_limit_maps.cf
+dbpath = /srv/postfixadmin/database/postfixadmin.db
+query = SELECT quota FROM mailbox WHERE username='%s' AND active = '1'
+

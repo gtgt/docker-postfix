@@ -1,0 +1,19 @@
+#!/sbin/openrc-run
+
+name=$RC_SVCNAME
+cfgfile="/etc/$RC_SVCNAME/$RC_SVCNAME.conf"
+command="/usr/bin/php8"
+command_args=" -t /usr/share/webapps/postfixadmin/public -S 0.0.0.0:8025"
+command_user="nobody"
+pidfile="/run/$RC_SVCNAME/$RC_SVCNAME.pid"
+#start_stop_daemon_args="--args-for-start-stop-daemon"
+command_background="yes"
+
+depend() {
+        need net
+}
+
+start_pre() {
+        checkpath --directory --owner $command_user:$command_user --mode 0775 \
+                /run/$RC_SVCNAME /var/log/$RC_SVCNAME
+}

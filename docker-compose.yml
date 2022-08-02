@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  mail:
+    image: gtgt/postfix-plus-admin:alpine
+    container_name: karihaz-mail
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+      network: host
+    restart: unless-stopped
+    deploy:
+      mode: global
+    ports:
+      - 25:25
+      - 8025:8025
+    volumes:
+      - karihaz-mail:/srv
+    networks:
+      - external
+
+volumes:
+  karihaz-mail:
+    name: karihazhu_karihaz-mail
+
+networks:
+  external:
+    name: karihaz-external
+
